@@ -38,3 +38,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
+// function for sending POST to server after clicking like button
+function likeCat(cat) {
+	fetch("https://api.thecatapi.com/v1/favourites", {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'x-api-key': API_KEY
+		},
+		body: JSON.stringify({
+			"image_id": cat.id,
+			"sub_id": "my-user-1234"
+		})
+	})
+	.then(response => response.json())
+	.then(data => {
+		console.log(data);
+	})
+	.catch(error => {
+		console.log(JSON.stringify(error));
+	});
+}
+
