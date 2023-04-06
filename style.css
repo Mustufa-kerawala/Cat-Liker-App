@@ -38,3 +38,13 @@ body{
     cursor: pointer;
     color: #000000;
 }
+
+.favorite-cats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
