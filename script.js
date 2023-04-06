@@ -98,9 +98,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
-    })
+    })    
 });
 
+// Adding a new cat to the page with a POST request on the upload endpoint
+const uploadCat = document.querySelector('.upload');
+// console.log(uploadCat);
+uploadCat.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Getting inputs from the form
+   const catData = e.target.querySelectorAll('input');
+    const catName = catData[0].value;
+    const catURL = catData[1].value;
+    
+    // Rendering the new cat on the page
+    const catDiv = document.createElement('div');
+    catDiv.classList.add('card');
+    // Creating an image element for each cat
+    let catImage = document.createElement('img');
+    catImage.src = catURL;
+    catImage.classList.add('card-img');
+    catImage.style.width = '100%';
+    catDiv.appendChild(catImage);
+    document.body.appendChild(catDiv);
+
+});
 
 
 
