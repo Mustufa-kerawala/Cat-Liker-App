@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	fetch(catURL)
 	.then(response => response.json())
 	.then(data => {
+        // Adding h2 tag for new cats
+        const newCatsh2 = document.createElement('h2');
+        newCatsh2.innerHTML = 'New Cats';
+        this.body.appendChild(newCatsh2);
 		data.forEach(cat => {
 			// Creating a card div for each cat
 			const catDiv = document.createElement('div');
@@ -55,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }).then(response => response.json())
     .then(data => {
         data.forEach(cat => {
-            console.log(cat);
+            // console.log(cat);
             // Creating a card div for each cat
             const catDiv = document.createElement('div');
             catDiv.classList.add('card');
@@ -66,8 +70,33 @@ document.addEventListener('DOMContentLoaded', function() {
             catImage.style.width = '100%';
             catDiv.appendChild(catImage);
             favoriteCats.appendChild(catDiv);
-            // // console.log(cat);
             
+            // Creating a DELETE button for each cat
+            let deleteButton = document.createElement('button');
+            deleteButton.classList.add('btn', 'delete-button');
+            deleteButton.innerHTML = '&#9249;';
+            catDiv.appendChild(deleteButton);
+
+            // Adding event listener to delete button
+            deleteButton.addEventListener('click', function(e) {
+                console.log('delete button clicked');
+                // https://api.thecatapi.com/v1/favourites/:favouriteId
+
+                fetch("https://api.thecatapi.com/v1/favourites/" + cat.id, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_KEY
+                    }
+                }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    catDiv.remove();
+                })
+                .catch(error => {
+                    console.log(JSON.stringify(error));
+                });
+            });
         });
     })
 });

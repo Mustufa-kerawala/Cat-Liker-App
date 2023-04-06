@@ -48,3 +48,12 @@ body{
     flex-wrap: wrap;
 
 }
+
+.delete-button {
+    background-color: #ce0000;
+    border: 1px solid #333;
+    font-size: 2em;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000000;
+}
