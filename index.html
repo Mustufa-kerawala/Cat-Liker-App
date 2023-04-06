@@ -9,6 +9,37 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    
+     <h1>
+        CatHub Liker App
+    </h1>
+    <h3>Upload your cat</h3>
+    <!-- 
+         action="https://api.thecatapi.com/v1/images/upload" method="post"
+     -->
+    <form class="upload">
+        <input type="text" id="catBreed" name="catBreed" placeholder="Cat Breed">
+        <input type="text" name="catImage" placeholder="Cat Image URL">
+        <input type="submit" onclick="return uploadCat()" id="submit" name="submit" value="Submit">
+    </form>
+
+    <div class="card">
+        <h2>
+            Test Card
+        </h2>
+        <p>
+            This is a test card.
+        </p>
+
+    </div>
+    <!-- <div class="fav">
+        <h2>
+            Showing Favourite Cats
+        </h2>
+        <p>
+            This is a test.
+        </p>
+    </div> -->
+
+
 </body>
 </html>
