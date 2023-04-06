@@ -16,4 +16,4 @@ Said user in the future will have a way to authenticate into the web app and hav
 
 Deployed at :- https://mustufa-kerawala.github.io/Cat-Liker-App/
 
-Author name :- Mustufa Kerawala
+Author name :- Mustufa .A. Kerawala
